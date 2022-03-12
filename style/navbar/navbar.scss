@@ -1,0 +1,126 @@
+// navigation bar
+.navbar {
+	z-index: -5;
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 5rem;
+	// background-color: var(--bg-primary);
+	transition: width 200ms ease, background-color 1s;
+	.navbar-nav {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.nav-item {
+		width: 100%;
+		transition: var(--transition-speed);
+		position: relative;
+	}
+
+	.nav-link {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 5rem;
+		color: var(--text-primary);
+		filter: grayscale(100%) opacity(0.5);
+		transition: var(--transition-speed);
+		i {
+			min-width: 2rem;
+			font-size: 1.9rem;
+			margin: 0 1.4rem;
+			color: #ff7eee;
+			transition: var(--transition-speed);
+		}
+		img {
+			filter: brightness(0) invert(1);
+		}
+	}
+	.link-text {
+		display: none;
+		margin-left: 1rem;
+	}
+	.logo {
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+		text-align: center;
+		// background: var(--bg-secondary);
+		color: var(--text-secondary);
+		letter-spacing: 0.3ch;
+		width: 100%;
+
+		i {
+			transform: rotateZ(0deg);
+			color: lightblue;
+			transition: transform var(--transition-speed);
+			margin-right: 1.4rem;
+		}
+		.link-text {
+			width: 100%;
+			opacity: 0;
+			transition: var(--transition-speed);
+		}
+	}
+}
+.logo-img {
+	width: 50px;
+	height: 50px;
+	color: white;
+}
+.link-cart {
+	position: absolute;
+	top: 5px;
+	left: 50px;
+}
+
+.navbar:hover {
+	width: 17rem;
+}
+.nav-item:before {
+	opacity: 0;
+	pointer-events: none;
+	content: '';
+	position: absolute;
+	width: 0.3rem;
+	height: 90%;
+	background: #ff7eee;
+	display: flex;
+	align-self: center;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	transition: var(--transition-speed);
+	filter: grayscale(100%) opacity(1);
+}
+.navbar .nav-item:hover:before {
+	height: 100%;
+	filter: grayscale(0) opacity(1);
+}
+.navbar:hover .nav-item:before {
+	opacity: 1;
+	pointer-events: visible;
+}
+.nav-item:last-child {
+	margin-top: auto;
+}
+.nav-link:hover {
+	filter: grayscale(0) opacity(1);
+	background: var(--bg-secondary);
+	color: var(--text-secondary);
+}
+.navbar:hover .link-text {
+	display: inline;
+	transition: opacity var(--transition-speed);
+}
+.navbar:hover .logo i {
+	transform: rotateZ(-180deg);
+}
+.navbar:hover .logo .link-text {
+	opacity: 1;
+}
+.navbar:hover .nav-item {
+	border-bottom: 1px solid rgb(109, 109, 109);
+}
